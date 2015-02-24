@@ -19,7 +19,22 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
                 <prompt>A good evening</prompt>
             <?php endif; ?>
 
-            <prompt>from Nex mo</prompt>
+            <prompt>from Nex mo.</prompt>
         </block>
+
+        <field name="department">
+            <prompt>Press 1 or say sales, press 2 or say support.</prompt>
+            <grammar xml:lang="en-US" mode="voice" root="toplevel">
+                <rule id="toplevel">
+                    <one-of>
+                        <item> sales </item>
+                        <item> support </item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <prompt>You said <value expr="department" /></prompt>
+            </filled>
+        </field>
     </form>
 </vxml>
