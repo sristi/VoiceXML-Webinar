@@ -45,8 +45,16 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
                 </rule>
             </grammar>
             <filled>
-                <prompt>You said <value expr="department" /></prompt>
+                <prompt>You said <value expr="department" />.</prompt>
             </filled>
         </field>
+
+        <record name="message">
+            <prompt>Please leave a message for that department.</prompt>
+            <filled>
+                <prompt>Here's your message <value expr="message" />.</prompt>
+            </filled>
+        </record>
+
     </form>
 </vxml>
