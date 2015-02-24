@@ -7,6 +7,9 @@ $now = new DateTime();
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
 <vxml version = "2.1">
+    <var name="department" expr=""/>
+    <var name="message" expr=""/>
+
     <form>
         <block>
             <?php if($now < $morning): ?>
@@ -57,6 +60,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
         </record>
 
         <filled>
+            <assign name="document.department" expr="department" />
+            <assign name="document.message" expr="message" />
+
             <prompt>Thanks for contacting us.</prompt>
             <goto next="#status" />
         </filled>
@@ -82,6 +88,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
             <if cond="status == 2">
                 <prompt>Your message will be delivered normally.</prompt>
             </if>
+
+            <submit next="http://requestb.in" namelist="status department message" method="post" enctype="multipart/form-data"/>
         </filled>
     </form>
 </vxml>
