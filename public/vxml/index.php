@@ -74,5 +74,14 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
                 </rule>
             </grammar>
         </field>
+
+        <filled>
+            <if cond="status == 1">
+                <prompt>Your message will be delivered urgently.</prompt>
+            </if>
+            <if cond="status == 2">
+                <prompt>Your message will be delivered normally.</prompt>
+            </if>
+        </filled>
     </form>
 </vxml>
