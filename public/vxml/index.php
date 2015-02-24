@@ -24,7 +24,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
 
         <field name="department">
             <prompt>Press 1 or say sales, press 2 or say support.</prompt>
-            <grammar xml:lang="en-US" mode="voice" root="toplevel">
+            <grammar mode="voice" root="toplevel">
                 <rule id="toplevel">
                     <one-of>
                         <item> sales </item>
