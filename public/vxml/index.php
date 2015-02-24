@@ -32,6 +32,14 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
                     </one-of>
                 </rule>
             </grammar>
+            <grammar mode="dtmf" root="toplevel">
+                <rule id="toplevel">
+                    <one-of>
+                        <item> 1 <tag> out.department="sales"; </tag></item>
+                        <item> 2 <tag> out.department="support"; </tag></item>
+                    </one-of>
+                </rule>
+            </grammar>
             <filled>
                 <prompt>You said <value expr="department" /></prompt>
             </filled>
