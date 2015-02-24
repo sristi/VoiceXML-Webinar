@@ -56,5 +56,23 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
             </filled>
         </record>
 
+        <filled>
+            <prompt>Thanks for contacting us.</prompt>
+            <goto next="#status" />
+        </filled>
+    </form>
+
+    <form id="status">
+        <field name="status">
+            <prompt>Press 1 for urgent, press 2 for normal delivery.</prompt>
+            <grammar mode="dtmf" root="toplevel">
+                <rule id="toplevel">
+                    <one-of>
+                        <item> 1 </item>
+                        <item> 2 </item>
+                    </one-of>
+                </rule>
+            </grammar>
+        </field>
     </form>
 </vxml>
