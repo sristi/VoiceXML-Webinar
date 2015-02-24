@@ -23,20 +23,24 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
         </block>
 
         <field name="department">
-            <prompt>Press 1 or say sales, press 2 or say support.</prompt>
+            <prompt>Say a product and a department</prompt>
             <grammar mode="voice" root="toplevel">
                 <rule id="toplevel">
+                    <ruleref uri="#product"/> <ruleref uri="#department"/>
+                </rule>
+
+                <rule id="product">
+                    <one-of>
+                        <item> sms </item>
+                        <item> voice </item>
+                        <item> verify </item>
+                    </one-of>
+                </rule>
+
+                <rule id="department">
                     <one-of>
                         <item> sales </item>
                         <item> support </item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <grammar mode="dtmf" root="toplevel">
-                <rule id="toplevel">
-                    <one-of>
-                        <item> 1 <tag> out.department="sales"; </tag></item>
-                        <item> 2 <tag> out.department="support"; </tag></item>
                     </one-of>
                 </rule>
             </grammar>
