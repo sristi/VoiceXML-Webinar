@@ -47,6 +47,13 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
                     </one-of>
                 </rule>
             </grammar>
+            <noinput>
+                Sorry, did not hear you. <reprompt />
+            </noinput>
+            <nomatch>
+                I could not understand that.
+                Say voice, sms, or verify, and a department, sales or support.
+            </nomatch>
             <filled>
                 <prompt>You said <value expr="department" />.</prompt>
             </filled>
@@ -92,4 +99,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
             <submit next="http://requestb.in" namelist="status department message" method="post" enctype="multipart/form-data"/>
         </filled>
     </form>
+
+    <catch event="connection.disconnect">
+        <submit next="http://requestb.in?log=data" />
+    </catch>
 </vxml>
